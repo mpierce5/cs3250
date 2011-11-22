@@ -1,0 +1,109 @@
+??
+
+LDA R1 B100
+COUNT .INT 0
+SPACE .BYT 32
+
+A1 .INT	1
+A2 .INT 2
+A3 .INT 3
+A4 .INT 4
+A5 .INT 5
+A6 .INT 6
+
+B100 .INT 300
+B15 .INT 15
+B50 .INT 50
+B20 .INT 20
+B10 .INT 10
+B5 .INT 5
+
+C500 .INT 500
+C2 .INT 2
+C5 .INT 5
+C10 .INT 10
+
+NAME    .BYT 77
+	.BYT 105
+	.BYT 99
+	.BYT 104
+	.BYT 97
+	.BYT 101
+	.BYT 108
+	.BYT 32
+	.BYT 80
+	.BYT 105
+	.BYT 101
+	.BYT 114
+	.BYT 99
+	.BYT 101
+
+TRP 3 (EACH CHAR IN YOUR NAME)
+//print your name
+
+//print a blank line
+?
+//add all the elements of list B together; print each result
+LDA R0, B1
+LDA R1, B2
+ADD R0, R1
+LDA R1, SPACE
+ 
+TRP 1, R0  --> PRINT RESULT OF ADDING B1 TO B2
+TRP 1, R1  --> PRINT A SPACE
+TRP 1, R1  --> PRINT A SPACE
+..........	
+//(intermediate and final) on screen. Put 2 spaces between each result
+//print a blank line
+//multiply all the elements of list A together; print each result
+LDA R0, A1
+LDA R1, A2
+MUL R0, R1
+LDA R1, SPACE
+
+TRP 1, R0  -->PRINT THE RESULT OF MULTIPLYING A1 TO A2
+TRP 1, R1  -->PRINT A SPACE
+TRP 1, R1  -->PRINT A SPACE
+.......
+//(intermediate and final) on screen. Put 2 spaces between each result
+//print a blank line
+
+//Divide the final result from part 3, by each element in list B 
+--> LOAD SAVED RESULT
+LDA R0, SAVEDRESULT
+LDA R1, B0
+DIV R0, R1
+LDA R1, SPACE
+
+TRP 1, R0  -->PRINT RESULT OF DIVIDING RESULT FROM PART3 BY LIST B
+TRP 1, R1  -->PRINT A SPACE
+TRP 1, R1  -->PRINT A SPACE
+
+//(the results are not cumulative). Put 2 spaces between each result
+//print a blank line
+//Subtract from the final result of part 5 each element of list C
+--> LOAD SAVED RESULT FROM PART 5
+LDA R0, RESULTFROMPT5
+LDA R1, C0
+SUB R0, R1
+LDA R1, SPACE
+
+TRP 1, R0  -->PRINT RESULT OF SUBTRACTING C0 FROM RESULT IN PT 5
+TRP 1, R1  -->PRINT A SPACE
+TRP 1, R1  -->PRINT A SPACE
+
+//(the results are not cumulative). Put 2 spaces between each result
+
+
+THINGS NEEDED FOR THIS PROJECT
+ADD
+SUB
+DIV
+MUL
+LDA
+TRP 1
+TRP 3
+STR  //STORE INTO MEMORY RESULT
+
+.INT
+.BYT
